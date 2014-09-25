@@ -1,0 +1,8 @@
+{% load i18n %}
+{% load url from future %}
+<div id="user_info" class="pull-right">
+  <span>{% blocktrans with username=request.user.username %}Logged in as: {{ username }}{% endblocktrans %}</span>
+  <a href="{% url 'horizon:settings:user:index' %}">{% trans "Settings" %}</a>
+  <a href="{% url 'logout' %}">{% trans "Sign Out" %}</a>
+  {% include "horizon/common/_region_selector.html" %}
+</div>
